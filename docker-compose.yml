@@ -1,0 +1,6 @@
+services:
+  view360:
+    build: .
+    ports:
+      - "5180:80"
+    restart: unless-stopped
