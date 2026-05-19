@@ -1,27 +1,50 @@
-# React + TypeScript + Vite
+# View360
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser-based 360° equirectangular image viewer. Drop any equirectangular photo and explore it interactively in a full-screen spherical view.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Drag to pan** — click and drag to look around
+- **Scroll / pinch to zoom** — mouse wheel or two-finger pinch, FOV range 20°–120°
+- **Touch support** — single-finger pan and two-finger pinch zoom on mobile
+- **FOV slider** — HUD control for precise zoom adjustment
+- **Save view** — exports the current viewport as a PNG screenshot
+- **Drag-and-drop or file browse** — no upload, images stay in the browser
 
-## Expanding the ESLint configuration
+## Supported formats
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Any equirectangular image in JPG, PNG, or WebP. The image is mapped onto the inside of a sphere using Three.js.
 
-- Configure the top-level `parserOptions` property like this:
+## Running locally
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+Requires [Node.js](https://nodejs.org/) 20 (via nvm) or Docker.
+
+### With nvm
+
+```bash
+./npm_run_dev.sh
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Dev server starts at `http://localhost:5173`.
+
+### With Docker
+
+```bash
+./run.sh
+```
+
+Builds a production image served via nginx at `http://localhost:5173`.
+
+### E2E tests
+
+```bash
+npx playwright test
+```
+
+## Tech stack
+
+- [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Three.js](https://threejs.org/) — WebGL sphere rendering
+- [Vite 4](https://vitejs.dev/)
+- [Playwright](https://playwright.dev/) — end-to-end tests
+- [nginx](https://nginx.org/) (Docker production image)
