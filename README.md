@@ -1,5 +1,7 @@
 # View360
 
+**Live demo: [hyfung.github.io/view360](https://hyfung.github.io/view360/)**
+
 A browser-based 360° equirectangular image viewer. Drop any equirectangular photo and explore it interactively in a full-screen spherical view.
 
 ## Features
