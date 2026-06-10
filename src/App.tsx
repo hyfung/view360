@@ -9,6 +9,9 @@ const GALLERY_IMAGES = [
   'typer_04.JPG',
   'typer_05.JPG',
   'typer_06.JPG',
+  'e63_01.JPG',
+  'e63_02.JPG',
+  'e63_03.JPG',
 ]
 
 export default function App() {
